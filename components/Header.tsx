@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const instagramUrl =
   process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/igrejaatitude";
@@ -20,8 +21,34 @@ export default function Header() {
       <div className="wrap">
         <div className="nav">
           <div className="brand">
-            <span style={{ fontSize: 20 }}>🌿</span>
-            <span>Projeto Oásis</span>
+            {/* LOGO */}
+            <div
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 12,
+                overflow: "hidden",
+                border: "1px solid var(--border)",
+                background: "#fff",
+                display: "grid",
+                placeItems: "center",
+              }}
+            >
+              <Image
+                src="/Logo.png"
+                alt="Projeto Oásis"
+                width={100}
+                height={100}
+                priority
+              />
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
+              <span style={{ fontWeight: 1000 }}>Projeto Oásis</span>
+              <span style={{ fontSize: 12, color: "var(--muted)", fontWeight: 800 }}>
+                Unidade Piloto • Rocinha
+              </span>
+            </div>
           </div>
 
           <nav className="navLinks">
@@ -30,11 +57,15 @@ export default function Header() {
             <a href="#impacto">Impacto</a>
             <a href="#depoimentos">Depoimentos</a>
             <a href="#voluntario">Voluntário</a>
-            <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
-            <a href={waHref} target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href={instagramUrl} target="_blank" rel="noreferrer">
+              Instagram
+            </a>
+            <a href={waHref} target="_blank" rel="noreferrer">
+              WhatsApp
+            </a>
           </nav>
 
-          <button className="mobileToggle" onClick={() => setOpen(v => !v)}>
+          <button className="mobileToggle" onClick={() => setOpen((v) => !v)}>
             {open ? "Fechar" : "Menu"}
           </button>
         </div>
