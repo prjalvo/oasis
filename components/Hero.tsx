@@ -12,105 +12,72 @@ function waLink() {
 
 export default function Hero() {
   return (
-    <header id="top" style={{ padding: "70px 0 30px" }}>
-      <div className="container">
-        <div className="card" style={{ padding: 26, borderRadius: 22 }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.2fr 0.8fr",
-              gap: 18,
-              alignItems: "center",
-            }}
-          >
+    <section className="hero full">
+      <div className="wrap">
+        <div className="card heroCard">
+          <div className="grid2" style={{ alignItems: "center" }}>
             <div>
-              <div
-                style={{
-                  display: "inline-flex",
-                  gap: 10,
-                  alignItems: "center",
-                  padding: "6px 12px",
-                  borderRadius: 999,
-                  border: "1px solid var(--border)",
-                  background: "rgba(255,255,255,0.04)",
-                }}
-              >
-                <span>🌿</span>
-                <small>Unidade piloto: Rocinha • RJ</small>
+              <div className="badge">
+                <span>📍</span>
+                <span>Unidade piloto: Rocinha • RJ</span>
               </div>
 
-              <h1 style={{ fontSize: 54, lineHeight: 1.05, margin: "16px 0 10px" }}>
-                Projeto{" "}
-                <span
-                  style={{
-                    background:
-                      "linear-gradient(135deg, var(--brand), var(--brand2))",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  Oásis
-                </span>
+              <h1 className="h1" style={{ marginTop: 14 }}>
+                Um <span style={{ color: "var(--brand)" }}>Oásis</span> de esperança
+                <br /> para crianças, jovens e famílias.
               </h1>
 
-              <p className="p" style={{ fontSize: 18, marginBottom: 18 }}>
-                Transformando comunidades através do amor, cuidado e oportunidades —
-                conectando voluntários qualificados a crianças, jovens e famílias que
-                precisam de esperança.
+              <p className="p" style={{ fontSize: 18 }}>
+                Conectamos voluntários qualificados a quem mais precisa — com saúde, educação musical,
+                capacitação e acolhimento contínuo.
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                <a className="btn" href="#voluntario">
-                  Quero me cadastrar
-                </a>
-                <a
-                  className="btnSecondary"
-                  href={waLink()}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Falar no WhatsApp
-                </a>
-                <a
-                  className="btnSecondary"
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Instagram
-                </a>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
+                <a className="btn" href="#voluntario">Quero ser voluntário</a>
+                <a className="btnSecondary" href={waLink()} target="_blank" rel="noreferrer">WhatsApp</a>
+                <a className="btnSecondary" href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
               </div>
 
-              {!waNumber && (
-                <p
-                  className="p"
-                  style={{ marginTop: 12, color: "rgba(255,180,180,0.9)" }}
-                >
-                  ⚠️ Configure NEXT_PUBLIC_WHATSAPP_NUMBER no .env para habilitar o
-                  WhatsApp.
-                </p>
-              )}
+              <div className="kpi">
+                <div className="kpiItem">
+                  <div className="kpiValue">500+</div>
+                  <div className="kpiLabel">Famílias (meta 1º ano)</div>
+                </div>
+                <div className="kpiItem">
+                  <div className="kpiValue">100+</div>
+                  <div className="kpiLabel">Voluntários</div>
+                </div>
+                <div className="kpiItem">
+                  <div className="kpiValue">90+</div>
+                  <div className="kpiLabel">Jovens na Orquestra</div>
+                </div>
+              </div>
             </div>
 
-            <div className="card" style={{ padding: 18, borderRadius: 18 }}>
-              <h3 style={{ marginTop: 0 }}>Como você pode participar</h3>
-              <ul
-                style={{
-                  margin: 0,
-                  paddingLeft: 18,
-                  color: "var(--muted)",
-                  lineHeight: 1.8,
-                }}
-              >
+            <div className="card" style={{ padding: 18 }}>
+              <h3 style={{ marginTop: 0, letterSpacing: "-.4px" }}>Como você pode participar</h3>
+              <ul style={{ margin: 0, paddingLeft: 18, color: "var(--muted)", lineHeight: 1.95, fontWeight: 700 }}>
                 <li>Doar tempo semanal ou quinzenal</li>
+                <li>Atender presencialmente ou virtualmente</li>
                 <li>Apoiar com equipamentos e materiais</li>
-                <li>Divulgar a visão e mobilizar outros voluntários</li>
-                <li>Orar e estar presente no “Dia D”</li>
+                <li>Ajudar na secretaria, acolhimento e operação</li>
               </ul>
+
+              <div style={{ marginTop: 14, borderTop: "1px solid var(--border)", paddingTop: 14 }}>
+                <div className="badge" style={{ justifyContent: "center" }}>
+                  “Cada vida transformada é uma vitória do amor sobre a adversidade.”
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {!waNumber && (
+          <p className="p" style={{ marginTop: 12, color: "rgba(210,40,40,.85)", fontWeight: 800 }}>
+            ⚠️ Configure NEXT_PUBLIC_WHATSAPP_NUMBER para habilitar o WhatsApp.
+          </p>
+        )}
       </div>
-    </header>
+    </section>
   );
 }
