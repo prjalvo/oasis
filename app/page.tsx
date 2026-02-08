@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Sections from "@/components/Sections";
 import VolunteerForm from "@/components/VolunteerForm";
@@ -7,6 +8,7 @@ import Footer from "@/components/Footer";
 export default function Page() {
   return (
     <>
+      <Header />
       <Hero />
       <Sections />
       <VolunteerForm />
